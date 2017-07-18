@@ -4,5 +4,6 @@ def application(environ, start_response):
         ('Content-type', 'text/plain')
     ]
     data = environ.get('QUERY_STRING')
+    import pdb; pdb.set_trace()
     start_response(status, headers)
     return [ data ]
