@@ -3,7 +3,6 @@ def application(environ, start_response):
     headers = [
         ('Content-type', 'text/plain')
     ]
-    data = environ.get('QUERY_STRING')
-    import pdb; pdb.set_trace()
+    data = environ.get('QUERY_STRING').replace('&', '\n')
     start_response(status, headers)
-    return [ data ]
+    return [bytes(data, 'utf-8')]
