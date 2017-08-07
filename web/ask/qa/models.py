@@ -8,10 +8,10 @@ class Question(models.Model):
     added_at = models.DateField()
     rating = models.IntegerField()
     author = models.ForeignKey(User)
-    likes = models.CharField()
+    likes = models.TextField()
 
 
-class Anser(models.Model):
+class Anwser(models.Model):
     text = models.TextField()
     added_at = models.DateField()
     question = models.ForeignKey(Question)
