@@ -9,8 +9,8 @@ sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/hello
 sudo ln -sf /home/box/web/etc/gunicorn-django.conf /etc/gunicorn.d/django
 sudo /etc/init.d/gunicorn restart
 sudo /etc/init.d/mysql start
-# mysql -uroot -e "CREATE DATABASE qa_db;"
-# mysql -uroot -e "CREATE USER 'django'@'localhost' IDENTIFIED BY 'admin';"
-# mysql -uroot -e "GRANT ALL PRIVILEGES ON qa_db.* TO 'django'@'localhost';"
-# mysql -uroot -e "FLUSH PRIVILEGES;"
-mysql -u root -p < script.sql
+mysql -uroot -e "CREATE DATABASE qa_db;"
+mysql -uroot -e "CREATE USER 'django'@'localhost' IDENTIFIED BY 'admin';"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON qa_db.* TO 'django'@'localhost';"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON test_qa_db.* TO 'django'@'localhost';"
+mysql -uroot -e "FLUSH PRIVILEGES;"

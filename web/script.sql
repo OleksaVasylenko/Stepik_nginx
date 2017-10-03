@@ -1,9 +1,0 @@
-CREATE DATABASE qa_db
-    DEFAULT CHARACTER SET utf8
-    DEFAULT COLLATE utf8_general_ci;
-
-USE 'mysql';
-GRANT ALL PRIVILEGES ON qa_db.* TO 'django'@'localhost' IDENTIFIED BY 'admin'
-
-WITH GRANT OPTION;
-FLUSH PRIVILEGES;
