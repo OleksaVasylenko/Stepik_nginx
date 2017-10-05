@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from qa.models import Question
-from utils import paginate
+from qa.utils import paginate
 
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
@@ -36,4 +36,5 @@ def detail(request, pk):
         request,
         'qa/detail.html',
         {question: question,
-         answers: answers}
+         answers: answer}
+    )

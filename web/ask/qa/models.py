@@ -32,7 +32,6 @@ class Answer(models.Model):
         null=False, 
         blank=False,
         on_delete=models.CASCADE,
-        related_name='answers'
     )
     author = models.ForeignKey(
         User,
