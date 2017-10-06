@@ -1,14 +1,27 @@
-{% for question in questions %}
-    {{ question.title }}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    {% for question in questions %}
+        {{ question.title }}<br />
+        <a href="{% url 'qa:detail' question.id %}" >
+            Detail of question id{{ question.id }}
+        </a><br />
+    {% endfor %}
 
-<nav><ul class="pagination">
-{% for number in paginator.page_range %}
-    {% if number == page.number %}
-    <li class="active">
-    {% else %}
-    <li>
-    {% endif %}
-        <a href="?page={{ number }}">{{ number }}</a>
-    </li>
-{% endfor %}
+    <nav><ul class="pagination">
+    {% for number in paginator.page_range %}
+        {% if number == page.number %}
+        <li class="active">
+        {% else %}
+        <li>
+        {% endif %}
+            <a href="?page={{ number }}">{{ number }}</a>
+        </li>
+    {% endfor %}
 </ul></nav>
+</body>
+</html>

@@ -17,15 +17,16 @@ from django.conf.urls import url
 from django.contrib import admin
 from qa import views
 
-app_name = 'question'
+app_name = 'qa'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.main_page, name='main_page'),
     url(r'^login/', views.test),
     url(r'^signup/', views.test),
-    url(r'^question/(\d+)/', views.test, name='detail'),
+    url(r'^question/(?P<pk>\d+)/', views.detail, name='detail'),
     url(r'^ask/', views.test),
-    url(r'^popular/', views.test, name='popular'),
+    url(r'^popular/', views.popular_list, name='popular'),
     url(r'^new/', views.test),
+    url(r'^$', views.main_page, name='main_page'),
 ]
+

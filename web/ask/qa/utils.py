@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage
 def paginate(request, query_set):
     try:
         limit = int(request.GET.get('limit', 10))
-        page_num =int(request.GET.get('limit', 1))
+        page_num = int(request.GET.get('page', 1))
     except ValueError:
         limit = 10
         page_num = 1
@@ -15,5 +15,4 @@ def paginate(request, query_set):
         page = paginator.page(page_num)
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
-    return page
-
+    return page, paginator
