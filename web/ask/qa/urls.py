@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^login/', views.test),
     url(r'^signup/', views.test),
     url(r'^question/(?P<pk>\d+)/', views.detail, name='detail'),
-    url(r'^ask/', views.test),
+    url(r'^ask/', views.ask, name='ask'),
     url(r'^popular/', views.popular_list, name='popular'),
     url(r'^new/', views.test),
     url(r'^$', views.main_page, name='main_page'),

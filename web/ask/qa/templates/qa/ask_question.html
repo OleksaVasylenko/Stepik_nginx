@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail</title>
+    <title>Ask Question</title>
 </head>
 <body>
-<h4>{{ question.title }}</h4>
-{{ question.text }}<br />
 {% for error in form.non_field_errors %}
     <div class="alert alert-danger">{{ error }}</div>
 {% endfor %}
-<form class="form-horizontal" method="post"
-      action="{% url 'qa:detail' question.id">
+<form class="form-horizontal" method="post" action="">
     {% csrf_token %}
         <fieldset>
             {% for field in form %}
@@ -23,11 +20,8 @@
             {% endfor %}
         </fieldset>
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
         </div>
 </form>
-{% for answer in answers %}
-    {{ answer.text }}<br />
-{% endfor %}
 </body>
 </html>
