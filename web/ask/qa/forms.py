@@ -14,7 +14,10 @@ class AskForm(forms.Form):
         super().clean()
 
     def save(self):
-        user, _ = User.objects.get_or_create(username='user1')
+        if self._user.is_authenticated:
+            user = self._user
+        else:
+            user, _ = User.objects.get_or_create(username='test_user')
         question = Question.objects.create(author=user, **self.cleaned_data)
         return question
 
@@ -31,6 +34,20 @@ class AnswerForm(forms.Form):
         super().clean()
 
     def save(self):
-        user, _ = User.objects.get_or_create(username='user1')
+        if self._user.is_authenticated:
+            user = self._user
+        else:
+            user, _ = User.objects.get_or_create(username='test_user')
         answer = Answer.objects.create(author=user, **self.cleaned_data)
         return answer
+
+
+class SignUpForm(forms.Form):
+    username = forms.CharField()
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
